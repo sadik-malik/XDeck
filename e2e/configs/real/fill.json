@@ -1,0 +1,3 @@
+{
+  "columns": [{ "type": "forYou" }, { "type": "following" }, { "type": "notifications" }]
+}

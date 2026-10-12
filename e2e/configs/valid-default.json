@@ -1,0 +1,18 @@
+{
+  "$schema": "./schema.json",
+  "columnWidth": 380,
+  "columns": [
+    {
+      "type": "forYou"
+    },
+    {
+      "type": "following"
+    },
+    {
+      "type": "notifications"
+    },
+    {
+      "type": "profile"
+    }
+  ]
+}

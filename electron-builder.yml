@@ -1,0 +1,77 @@
+# Packaging for macOS, Windows and Linux (TASK-011, roadmap Phase 4).
+# Release contracts (CLAUDE.md "Release"): appId io.github.sadik-malik.xdeck; the macOS asset is
+# XDeck-<tag>.zip containing XDeck.app (the release workflow sets the name from the git tag).
+appId: io.github.sadik-malik.xdeck
+productName: XDeck
+copyright: Copyright © sadik-malik
+directories:
+  output: dist
+  buildResources: build
+files:
+  - out/**/*
+  - package.json
+# The default settings.json and schema.json, read from process.resourcesPath/config when packaged
+# (src/main/config.ts bundledConfigDirectory).
+extraResources:
+  - from: resources/config
+    to: config
+  # The window icon (src/main/index.ts appIconPath).
+  - from: resources/icon.png
+    to: icon.png
+asar: true
+# Electron fuses, flipped in the packaged executable (security audit, TASK-036). Only packages get
+# them: `pnpm dev` and the E2E runs use the stock Electron binary.
+electronFuses:
+  # X's login cookies are encrypted on disk with the OS keychain (DPAPI, Keychain, libsecret).
+  enableCookieEncryption: true
+  # The app cannot be started as plain Node.js, or with Node options or a debugger, to run other code
+  # as XDeck.
+  runAsNode: false
+  enableNodeOptionsEnvironmentVariable: false
+  enableNodeCliInspectArguments: false
+  # The app's code is checked against the hash built into the executable, and loads only from it.
+  enableEmbeddedAsarIntegrityValidation: true
+  onlyLoadAppFromAsar: true
+
+mac:
+  category: public.app-category.social-networking
+  target:
+    - target: zip
+      arch: [universal]
+  artifactName: XDeck-${version}.${ext}
+  # Ad-hoc signed ("-"): no Apple Developer account, no certificate (user decision 2026-10-12).
+  # Apple Silicon runs only signed code, and an ad-hoc signature is enough for that. It is not
+  # notarized, so Gatekeeper blocks the first launch until the user allows it (README). The hardened
+  # runtime is only needed for notarization, and with an ad-hoc signature it would also need library
+  # validation turned off, so it is off. With a Developer ID later: set identity to that certificate
+  # (or leave it out and pass CSC_LINK), turn hardenedRuntime and notarize back on, and keep the
+  # entitlements.
+  identity: "-"
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  notarize: false
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: XDeck-Setup-${version}.${ext}
+  # Unsigned for now (user decision 2026-10-10): SmartScreen warns on first install.
+  signAndEditExecutable: true
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Network
+  # Debian packages expect "Name <email>": the maintainer's GitHub no-reply address, so no personal
+  # email is published.
+  maintainer: sadik-malik <38027249+sadik-malik@users.noreply.github.com>
+  artifactName: XDeck-${version}-${arch}.${ext}

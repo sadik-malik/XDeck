@@ -1,0 +1,30 @@
+/* XDeck colour and type tokens. Values are the Swift app's hex values (roadmap §3). */
+@theme {
+  --color-x-bg-light: #ffffff;
+  --color-x-bg-dark: #17202a;
+  --color-x-border-light: #eff3f4;
+  --color-x-border-dark: #38444d;
+  --color-x-text-light: #536471;
+  --color-x-text-dark: #8b98a5;
+  --color-toggle-dark-on: #606d7c;
+  --color-toggle-off: #bcc9d2;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Noto Sans", sans-serif;
+}
+
+/*
+ * The app chrome's colours at runtime (TASK-008). They follow the theme colour X reports for its
+ * pages (Swift ContentView backgroundColor/borderColor/textColor), so they are CSS variables that the
+ * renderer sets, exposed to Tailwind as bg-app-bg, border-app-border and text-app-text.
+ */
+@theme inline {
+  --color-app-bg: var(--app-bg);
+  --color-app-border: var(--app-border);
+  --color-app-text: var(--app-text);
+}
+
+:root {
+  --app-bg: #ffffff;
+  --app-border: #eff3f4;
+  --app-text: #536471;
+}

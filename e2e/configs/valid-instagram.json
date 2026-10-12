@@ -1,0 +1,11 @@
+{
+  "columns": [
+    { "type": "custom", "url": "https://www.instagram.com/", "filters": { "hideReels": true } },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/explore/tags/cats/",
+      "account": "second.ig_acct",
+      "filters": { "hideReels": false, "mutedWords": ["spoiler"] }
+    }
+  ]
+}

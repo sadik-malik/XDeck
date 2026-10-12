@@ -1,0 +1,10 @@
+{
+  "columnWidth": 380,
+  "decks": [
+    { "name": "Main", "columns": [{ "type": "forYou" }, { "type": "notifications" }] },
+    {
+      "name": "News",
+      "columns": [{ "type": "custom", "url": "https://x.com/search?q=news&f=live" }]
+    }
+  ]
+}

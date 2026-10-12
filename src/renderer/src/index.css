@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "./theme/tokens.css";
+@import "./theme/shadcn.css";
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    /* The shell never scrolls itself; only the column strip scrolls, horizontally. */
+    overflow: hidden;
+    font-family: var(--font-sans);
+    /* The rem base: every text and icon size in the shell scales from it (TASK-030). */
+    font-size: 15px;
+    background: var(--app-bg);
+  }
+}
+
+/*
+ * While a column is being resized or reordered, the pages stop taking the pointer. A <webview> is a
+ * separate page, so it would swallow pointer moves and the drag would stop at the first column it
+ * crosses (TASK-013/014).
+ */
+/* biome-ignore lint/correctness/noUnknownTypeSelector: <webview> is Electron's element. */
+[data-testid="column-strip"][data-dragging="true"] webview {
+  pointer-events: none;
+}
+
+/* The column strip's horizontal scrollbar: thin, in X's secondary text colour, so it follows the theme. */
+[data-testid="column-strip"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-text) transparent;
+}
+
+/* The title bar drags the window (TASK-024). */
+.app-drag {
+  -webkit-app-region: drag;
+}

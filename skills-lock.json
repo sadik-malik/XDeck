@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "code-spacing": {
+      "source": "piplupjs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/code-spacing/SKILL.md",
+      "computedHash": "8a360dedaf4fc806ca8d6d94795e7da268ec3c6fb8843ca2b823d94741fa601e"
+    },
+    "coding-principles": {
+      "source": "piplupjs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/coding-principles/SKILL.md",
+      "computedHash": "bf3ac9cde1a1b6b776c2de370f274e00110f23a39c08f01e16626b8f6b4c0ca6"
+    },
+    "write-react-code": {
+      "source": "piplupjs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/write-react-code/SKILL.md",
+      "computedHash": "9efdced54ef62fc172868524264a404741661444bd7255774f18cda06fe2c82b"
+    }
+  }
+}

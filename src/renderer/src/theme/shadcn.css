@@ -1,0 +1,88 @@
+/* shadcn/ui semantic variables. Placeholder values for TASK-001; mapped onto the XDeck tokens
+   where one exists. Final values come from the Swift goldens in Phase 3. */
+@import "tw-animate-css";
+
+/* Dark follows X's theme (useAppTheme sets data-theme on <html>), not a .dark class. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f1419;
+  --card: #ffffff;
+  --card-foreground: #0f1419;
+  --popover: #ffffff;
+  --popover-foreground: #0f1419;
+  --primary: #0f1419;
+  --primary-foreground: #ffffff;
+  --secondary: #eff3f4;
+  --secondary-foreground: #0f1419;
+  --muted: #eff3f4;
+  --muted-foreground: #536471;
+  --accent: #eff3f4;
+  --accent-foreground: #0f1419;
+  --destructive: #f4212e;
+  --border: #eff3f4;
+  --input: #bcc9d2;
+  --ring: #536471;
+  --radius: 0.5rem;
+}
+
+/* Popups and dialogs sit on X's own background colour, so Dim and Lights out both match. */
+:root[data-theme="dark"] {
+  --background: var(--app-bg);
+  --foreground: #e7e9ea;
+  --card: var(--app-bg);
+  --card-foreground: #e7e9ea;
+  --popover: var(--app-bg);
+  --popover-foreground: #e7e9ea;
+  --primary: #eff3f4;
+  --primary-foreground: #0f1419;
+  --secondary: color-mix(in srgb, var(--app-bg), white 10%);
+  --secondary-foreground: #e7e9ea;
+  --muted: color-mix(in srgb, var(--app-bg), white 10%);
+  --muted-foreground: #8b98a5;
+  --accent: color-mix(in srgb, var(--app-bg), white 10%);
+  --accent-foreground: #e7e9ea;
+  --border: var(--app-border);
+  --input: var(--app-border);
+  --ring: #8b98a5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * Tailwind v4 draws a `border` in the text colour unless a colour is given, which put dark outlines
+ * on every menu, dialog, field and tile. Borders default to the theme's soft border colour, and
+ * focus rings to a faint ring colour, as in shadcn's own base styles.
+ */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
+  }
+}

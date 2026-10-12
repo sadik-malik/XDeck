@@ -1,0 +1,54 @@
+name: Landing page
+
+# Publishes the landing page (public/) to GitHub Pages, at https://sadik-malik.github.io/XDeck/,
+# whenever a change to it reaches main, or by hand (Actions → Landing page → Run workflow). GitHub
+# Pages serves a branch only from its root or /docs, so the page goes up as an artifact instead.
+# The repository's Pages source must be "GitHub Actions" (Settings → Pages). The app itself is not
+# built here.
+# Actions are pinned to the commit their tag pointed to, like the release workflow's (TASK-036).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+  workflow_dispatch:
+
+# Read-only by default; only the deploy job may publish to Pages.
+permissions:
+  contents: read
+
+# One publish at a time; a newer one waits for the one running instead of cancelling it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Package the page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Upload public/
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: public
+
+  deploy:
+    name: Publish
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # publish to Pages
+      id-token: write # prove to Pages that the publish comes from this workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

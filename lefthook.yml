@@ -1,0 +1,14 @@
+# Git hooks (lefthook). `pnpm install` sets them up; skip one commit's with `git commit --no-verify`
+# only when you must.
+pre-commit:
+  parallel: true
+  jobs:
+    # Biome formats and lints the staged files, and stages its own fixes.
+    - name: biome
+      glob: "*.{js,mjs,cjs,ts,tsx,json,jsonc,css}"
+      run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+      stage_fixed: true
+    # The whole project's types: a change in one file can break another.
+    - name: typecheck
+      glob: "*.{ts,tsx}"
+      run: pnpm typecheck

@@ -1,0 +1,10 @@
+# pnpm 11 blocks dependency install scripts unless listed here.
+allowBuilds:
+  electron: true # downloads the Electron binary
+  esbuild: true # native binary used by electron-vite and Vite
+  edgedriver: false # WebDriver for browsers this project does not use
+  geckodriver: false
+  electron-winstaller: false # Squirrel installer; XDeck uses NSIS (electron-builder)
+  lefthook: true # installs the git hooks in lefthook.yml
+minimumReleaseAgeExclude:
+  - '@types/node@24.19.2'

@@ -1,0 +1,4 @@
+{
+  "columnWidth": 380,
+  "columns": [{ "type": "custom", "url": "https://example.com/" }, { "type": "forYou" }]
+}

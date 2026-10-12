@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- XDeck (TASK-028, concept D "staggered feed"): three columns at staggered heights, each with an avatar. -->
+  <rect width="512" height="512" rx="116" fill="#1d9bf0"/>
+  <g fill="#ffffff">
+    <rect x="96" y="104" width="96" height="232" rx="30"/>
+    <rect x="208" y="176" width="96" height="232" rx="30"/>
+    <rect x="320" y="136" width="96" height="232" rx="30"/>
+  </g>
+  <g fill="#1d9bf0">
+    <circle cx="144" cy="148" r="22"/>
+    <circle cx="256" cy="220" r="22"/>
+    <circle cx="368" cy="180" r="22"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+{
+  "columnWidth": 380,
+  "columns": [
+    { "type": "custom", "url": "https://x.com/search?q=xdeck" },
+    { "type": "custom", "url": "" }
+  ]
+}

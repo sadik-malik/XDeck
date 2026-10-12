@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": ["src/column-preload/**/*.ts", "src/shared/**/*.ts"]
+}

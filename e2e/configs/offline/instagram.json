@@ -1,0 +1,34 @@
+{
+  "columnWidth": 380,
+  "columns": [
+    { "type": "custom", "url": "https://www.instagram.com/" },
+    { "type": "custom", "url": "https://www.instagram.com/reels/", "account": "absent.acct" },
+    { "type": "custom", "url": "https://www.instagram.com/explore/", "account": "absent.acct" },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/notifications/",
+      "account": "absent.acct"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/direct/inbox/",
+      "account": "absent.acct"
+    },
+    { "type": "custom", "url": "https://www.instagram.com/natgeo/", "account": "absent.acct" },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/explore/tags/cats/",
+      "account": "absent.acct"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/absent.acct/saved/",
+      "account": "absent.acct"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.instagram.com/accounts/edit/",
+      "account": "absent.acct"
+    }
+  ]
+}

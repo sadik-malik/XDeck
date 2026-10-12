@@ -1,0 +1,4 @@
+{
+  "columns": [{ "type": "forYou" }],
+  "decks": [{ "name": "Main", "columns": [{ "type": "forYou" }] }]
+}

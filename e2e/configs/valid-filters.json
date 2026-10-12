@@ -1,0 +1,10 @@
+{
+  "columns": [
+    { "type": "forYou", "filters": { "hideReposts": true, "mutedWords": ["spoiler", "crypto"] } },
+    {
+      "type": "custom",
+      "url": "https://x.com/search?q=electron&f=live",
+      "filters": { "mediaOnly": true }
+    }
+  ]
+}

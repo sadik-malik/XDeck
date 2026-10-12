@@ -1,0 +1,5 @@
+{
+  "$schema": "./schema.json",
+  "columnWidth": 0,
+  "columns": [{ "type": "notifications" }]
+}

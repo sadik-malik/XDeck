@@ -1,0 +1,5 @@
+{
+  "columns": [
+    { "type": "custom", "url": "https://www.instagram.com/", "filters": { "hideReels": "yes" } }
+  ]
+}

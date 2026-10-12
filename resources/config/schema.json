@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "account": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._]{1,30}$"
+    },
+    "column": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["forYou", "following", "notifications", "profile"]
+            },
+            "filters": {
+              "$ref": "#/$defs/filters"
+            },
+            "account": {
+              "$ref": "#/$defs/account"
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["custom"]
+            },
+            "url": {
+              "type": "string"
+            },
+            "filters": {
+              "$ref": "#/$defs/filters"
+            },
+            "account": {
+              "$ref": "#/$defs/account"
+            }
+          },
+          "required": ["type", "url"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "hideReposts": {
+          "type": "boolean"
+        },
+        "mediaOnly": {
+          "type": "boolean"
+        },
+        "hideReels": {
+          "type": "boolean"
+        },
+        "mutedWords": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "maxItems": 50
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "columnWidth": {
+      "type": "integer"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/column"
+      }
+    },
+    "decks": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/column"
+            }
+          }
+        },
+        "required": ["name", "columns"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "required": ["columns"]
+    },
+    {
+      "required": ["decks"]
+    }
+  ],
+  "additionalProperties": false
+}

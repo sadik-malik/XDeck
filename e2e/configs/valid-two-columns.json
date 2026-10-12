@@ -1,0 +1,4 @@
+{
+  "columnWidth": 420,
+  "columns": [{ "type": "forYou" }, { "type": "following" }]
+}

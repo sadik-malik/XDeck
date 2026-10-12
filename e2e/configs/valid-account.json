@@ -1,0 +1,3 @@
+{
+  "columns": [{ "type": "forYou" }, { "type": "notifications", "account": "second_acct" }]
+}

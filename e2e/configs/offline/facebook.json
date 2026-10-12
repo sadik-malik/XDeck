@@ -1,0 +1,47 @@
+{
+  "columnWidth": 380,
+  "columns": [
+    { "type": "custom", "url": "https://www.facebook.com/" },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/notifications",
+      "account": "100000000000002"
+    },
+    { "type": "custom", "url": "https://www.facebook.com/watch", "account": "100000000000002" },
+    { "type": "custom", "url": "https://www.facebook.com/reel/123", "account": "100000000000002" },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/groups/feed/",
+      "account": "100000000000002"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/groups/123456/",
+      "account": "100000000000002"
+    },
+    { "type": "custom", "url": "https://www.facebook.com/meta.page", "account": "100000000000002" },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/profile.php?id=4",
+      "account": "100000000000002"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/marketplace",
+      "account": "100000000000002"
+    },
+    { "type": "custom", "url": "https://www.facebook.com/events", "account": "100000000000002" },
+    { "type": "custom", "url": "https://www.facebook.com/saved", "account": "100000000000002" },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/search/top?q=cats",
+      "account": "100000000000002"
+    },
+    {
+      "type": "custom",
+      "url": "https://www.facebook.com/hashtag/cats",
+      "account": "100000000000002"
+    },
+    { "type": "custom", "url": "https://www.facebook.com/messages/", "account": "100000000000002" }
+  ]
+}
